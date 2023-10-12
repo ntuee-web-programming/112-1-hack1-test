@@ -271,6 +271,11 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 ## TODO's
 
+
+![](https://media.discordapp.net/attachments/893439505988743178/1161825719907782696/Hack1_README_Draft.png?ex=6539b585&is=65274085&hm=45caf5e21a5c3bd96216bb253c69fa8de0a749cee599cbaa0806623dd468ee2c&=&width=1316&height=1210)
+
+We've laid out four main tasks for you, each containing a series of subtasks. The main tasks are independent of each other. Therefore, if you find yourself stuck on a particular task, feel free to jump to the next. However, some subtasks may rely on the completion of previous ones. For instance, finishing subtask 1.4 is a prerequisite for 1.5. We've indicated which files you'll need to modify for each subtask, arranged in the recommended order of completion. To locate relevant tasks in your editor, simply search for `TODO #.#`.
+
 ### 1. Title and Login Page (34%)
 
 - [ ] 1.1 Title and Login Page Title (5%)
@@ -302,7 +307,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 #### 2.1 Render Posts (3%)
 
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%201.png)
+![](https://media.discordapp.net/attachments/893439505988743178/1161825720293654528/Hack1_README_Draft_1..png?ex=6539b585&is=65274085&hm=a35d2ae34614d497e79a45cefd6c7a84bbaa7dc1b9ef863499d97edba754adb7&=&width=1612&height=1210)
 
 **Requirements**
 
@@ -318,7 +323,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 #### 2.2 Navigation with Footer Buttons (8%)
 
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%202.png)
+![](https://media.discordapp.net/attachments/893439505988743178/1161826003828604989/Hack1_README_Draft_2..png?ex=6539b5c8&is=652740c8&hm=d411de1d574443908af2c35cd7512026e0bda4b89787316c2efb19c0cc5ec001&=&width=1612&height=1210)
 
 **Requirements**
 
@@ -346,7 +351,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 #### 2.4 Handle Votes for Unvoted Posts (8%)
 
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%203.png)
+![Untitled](https://media.discordapp.net/attachments/893439505988743178/1161826756991389706/Untitled.png?ex=6539b67c&is=6527417c&hm=fadaa2e10fa24b8453842867105da01bd2442e3bf3ba6a9dc2f2e873ab060363&=&width=1612&height=1210)
 
 **Requirements**
 
@@ -364,7 +369,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 #### 3.1 Create a New Post With the Editor (5%)
 
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%205.png)
+![](https://media.discordapp.net/attachments/893439505988743178/1161827094901297152/Untitled.png?ex=6539b6cd&is=652741cd&hm=67905d87f93589b81607969082a21f5261dc1cf6f79c897dabde921188392dc5&=&width=1612&height=1210)
 
 **Requirements**
 
@@ -379,7 +384,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 #### 3.2 View User Posts With Files Tab (8%)
 
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%206.png)
+![](https://media.discordapp.net/attachments/893439505988743178/1161827291739996170/Hack1_README_Draft_5..png?ex=6539b6fc&is=652741fc&hm=9de75167c1e44427644f686a61b942b9db4aac01d6bed0e3ed158b1d10583f2c&=&width=1612&height=1210)
 
 **Requirements**
 
