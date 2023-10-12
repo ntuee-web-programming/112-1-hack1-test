@@ -71,9 +71,6 @@ export const PostsProvider = ({ children }: PropsWithChildren) => {
   };
   /* END TODO 3.3 */
 
-  /* (2/2) TODO 2.5 Handle Voting for Voted Posts (16%) */
-  /* Hint 2.5.1: Signal that the context is "locked" through some exported state */
-  /* Hint 2.5.2: Remember to "unlock" the context once the operation is done */
   const votePost = async (
     index: number,
     userId: string,
@@ -86,7 +83,6 @@ export const PostsProvider = ({ children }: PropsWithChildren) => {
       // handle downvotes
     }
   };
-  /* End (2/2) TODO 2.5 */
 
   const upvotePost = async (index: number, userId: string) => {
     if (posts === null) return;

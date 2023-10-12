@@ -151,7 +151,7 @@ To submit the project, here is the recommended workflow:
 ```bash
 git add .
 git commit -m "Your commit message"
-git archive -o hack1.zip HEAD # Create a zip file of your project
+git archive -o hack1.zip HEAD:hack1 # Create a zip file of your project
 git push # Push your code to GitHub
 ```
 
