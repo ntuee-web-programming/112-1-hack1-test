@@ -64,7 +64,6 @@ const View = (): React.ReactNode => {
       <div className="mt-auto">
         {/* (2/3) TODO 2.2: Navigation with `ViewFooter` Buttons (8%) */}
         {/* (3/3) TODO 2.4: Navigation with `ViewFooter` Buttons (8%) */}
-        {/* (1/2)TODO 2.5 : Handle Voting for Voted Posts (6%) */}
         {/* Hint 2.2.2, 2.4.4, 2.5.2: Pass correct arguments to `ViewFooter` component */}
         {/* Hint 2.2.3: Arguments `nextClickHandler` and `prevClickHandler` should be modified */}
         {/* Hint 2.4.5: Arguments `downvoteClickHandler`, `upvoteClickHandler`, `hasUpvoted`, `hasDownvoted` and `totalVotes` should be Modified */}
@@ -80,7 +79,6 @@ const View = (): React.ReactNode => {
           totalVotes={0}
           loading={false}
         />
-        {/* End (1/2) TODO 2.5 */}
         {/* End (3/3) TODO 2.4 */}
         {/* End (2/3) TODO 2.2 */}
       </div>

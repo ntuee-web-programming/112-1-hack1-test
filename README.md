@@ -1,10 +1,20 @@
 # 112-1-hack1
 
-### Table of Contents
+## Table of Contents
 
 - [112-1-hack1](#112-1-hack1)
-    - [Table of Contents](#table-of-contents)
-  - [Project Structure](#project-structure)
+  - [Table of Contents](#table-of-contents)
+  - [👀 Overview](#overview)
+  - [🏃 Run the Project](#run-the-project)
+    - [0. Verify Your Versions](#0-verify-your-versions)
+    - [1. Clone the Project](#1-clone-the-project)
+    - [2. Install Dependencies](#2-install-dependencies)
+    - [3. Launch the Project](#3-launch-the-project)
+    - [4. Test the Project](#4-test-the-project)
+    - [5. Submit the Project](#5-submit-the-project)
+  - [🈴 Grading Rules/ Reminders](#grading-rules-reminders)
+  - [🌴 ****Project Structure****](#project-structure)
+  - [Project Structure](#project-structure-1)
     - [Frontend](#frontend)
     - [Backend](#backend)
   - [TODO's](#todos)
@@ -14,25 +24,215 @@
       - [2.2 Navigation with Footer Buttons (8%)](#22-navigation-with-footer-buttons-8)
       - [2.3 Navigation with Keyboard Inputs (5%)](#23-navigation-with-keyboard-inputs-5)
       - [2.4 Handle Votes for Unvoted Posts (8%)](#24-handle-votes-for-unvoted-posts-8)
-      - [2.5 Handle Voting for Voted Posts (16%)](#25-handle-voting-for-voted-posts-16)
     - [3. Create Page (21%)](#3-create-page-21)
       - [3.1 Create a New Post With the Editor (5%)](#31-create-a-new-post-with-the-editor-5)
       - [3.2 View User Posts With Files Tab (8%)](#32-view-user-posts-with-files-tab-8)
     - [3.3 Edit User Posts With Editor (8%)](#33-edit-user-posts-with-editor-8)
     - [4. Settings - Profile Page (29%)](#4-settings---profile-page-29)
-- [Hack1 README Draft](#hack1-readme-draft)
-- [👀 Overview](#overview)
-- [🏃 Run the Project](#run-the-project)
-    - [0. Verify Your Versions](#0-verify-your-versions)
-    - [1. Clone the Project](#1-clone-the-project)
-    - [2. Install Dependencies](#2-install-dependencies)
-    - [3. Launch the Project](#3-launch-the-project)
-    - [4. Test the Project](#4-test-the-project)
-    - [5. Submit the Project](#5-submit-the-project)
-- [🈴 Grading Rules/ Reminders](#grading-rules-reminders)
-- [🌴 ****Project Structure****](#project-structure-1)
-- [✏️ TODO’s](#️todos)
-- [📚 Resources](#resources)
+  - [📚 Resources](#resources)
+
+
+## 👀 Overview
+
+- **VSCoddit—VSCode & Reddit Mock App**
+    
+    
+    Introducing VSCoddit, a unique and innovative fusion of two tech-centric worlds: Visual Studio Code and Reddit. VSCoddit brings together coding enthusiasts, developers, and tech aficionados in a vibrant online community where they can freely share and discuss their code snippets.
+    
+    At VSCoddit, users can create, share, and discover code snippets, just like you would post and engage with content on Reddit. Whether it's a brilliant solution to a programming problem, a clever code trick, or simply a fun project, VSCoddit provides a platform to showcase your coding skills and learn from others.
+    
+    One of the standout features of VSCoddit is the upvoting and downvoting system, allowing the community to recognize and promote high-quality code snippets while filtering out the less valuable ones. This system not only encourages contributors to provide meaningful and well-structured code but also helps users quickly identify the best content in the sea of submissions.
+    
+    Happy hacking!
+    
+
+1. Download Hack1 Folder.
+    
+    ```bash
+    cd /path/to/same/level/with/wp1121
+    git clone ...
+    ```
+    
+2. Remove `.git` Folder and Move The Folder to `wp1121`.
+    
+    ```bash
+    rm -rf ./hack1/.git
+    mv ./hack1 ./wp1121
+    ```
+    
+3. Read README!
+4. [Search For TODO’s in Your Editor](https://www.notion.so/Hack1-README-Draft-da809f2ca66c4f36aa5e47081916121c?pvs=21).
+5. Start Coding.
+6. (Optional) Local Testing with Playwright.
+7. (Optional) Failed Tests? Debug.
+8. Done? Zip and Submit to Gradescope
+
+## 🏃 Run the Project
+
+This project utilizes Yarn as its package manager and comprises both frontend and backend sub-projects. It also makes use of the `concurrently` package to execute multiple commands simultaneously. Below are the steps to run the project:
+
+### 0. Verify Your Versions
+
+```bash
+node -v # Ensure it's 18.18.0 (recommended) or compatible (18.x.x)
+yarn -v # Ensure it's 1.22.19 (recommended) or compatible (1.x.x)
+```
+
+### 1. Clone the Project
+
+Open your terminal and clone the project using the following command:
+
+```bash
+cd wp1121 # Enter the wp1121 directory
+git clone https://github.com/ntuee-web-programming/112-1-hack1-test.git hack1 # Clone the project
+rm -rf hack1/.git # Remove the .git directory
+```
+
+### 2. Install Dependencies
+
+To install dependencies for both the frontend and backend sub-projects, use:
+
+```bash
+yarn
+```
+
+This will concurrently execute the `install:frontend` and `install:backend` scripts.
+If preferred, you can also install the dependencies for each sub-project separately.
+
+### 3. Launch the Project
+
+The default port for the frontend is `5173`, while the default port for the backend is `6969`. If you wish to change these ports, you can see `.env.example` for more details. Note that the `PORT` of backend must match the port in `VITE_API_URL` of frontend. You must set the `MONGO_URL` of backend before running the project.
+
+To run the frontend and backend concurrently from the project's root directory, enter:
+
+```bash
+yarn dev
+```
+
+This will concurrently execute the `dev:frontend` and `dev:backend` scripts.
+
+If preferred, you can also launch the frontend and backend individually.
+
+By adhering to these steps, you should successfully run the project on your local machine.
+
+### 4. Test the Project
+
+We utilize Playwright for testing our project. To run the tests, execute:
+
+```bash
+yarn playwright install chromium # Install Chromium (if not already installed)
+yarn playwright install-deps chromium # Install Chromium dependencies (if not already installed)
+yarn test
+```
+
+You should run the test in a separate terminal from the terminal you run your service. Ensure you have launched the project (refer to step 3) before initiating the tests!
+
+Other useful commands for testing include:
+
+```bash
+yarn test public-1 # Test tests/public-1.spec.ts only
+yarn test --reporter=list # Only show the list of tests
+yarn test --headed # Run the tests in a visible browser
+yarn test --debug # Shortcut for "--timeout=0 --max-failures=1 --headed --workers=1"
+```
+
+### 5. Submit the Project
+
+To ensure you receive full credit for your work, it's essential to submit your project to both Gradescope and GitHub.
+
+<aside>
+🚨 **!!!IMPORTANT!!!**
+Not pushing your code to GitHub or failing to sign in will result in a 5% deduction from the total score.
+
+</aside>
+
+To submit the project, here is the recommended workflow:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git archive -o hack1.zip HEAD # Create a zip file of your project
+git push # Push your code to GitHub
+```
+
+Then, upload `hack1.zip` to Gradescope.
+
+## 🈴 Grading Rules/ Reminders
+
+- **DO NOT** modify the `className` of any element in the HTML files. This is strictly for styling purposes. No points will be deducted for modifying the `className` attribute, but it's not recommended.
+- **DO NOT** modify the `data-testid` attribute of any element in the HTML files. This is solely for testing purposes. If you modify this attribute, your tests may fail.
+- You should **NOT** modify files that aren't mentioned in the TODO list. Any modifications to these files will be ignored during grading.
+- Even though Gradescope may have graded your code during the test, **you must still push your code** to the main branch of your GitHub repo `wp1211/hack1` before Hack#1 concludes. If necessary, we will review your code. Failing to push the code before the deadline will result in a 5% deduction from the total score.
+- If you're wondering where the TODOs are located, utilize the search function in your editor. The TODOs are labeled as `TODO #.#`. For instance, `TODO 1.1` pertains to the first subtask of task 1. If you're using VSCode, the shortcut `Ctrl+Shift+F` (Windows) or `Cmd+Shift+F` (Mac) will help you search for these TODOs. To see all TODOs, use regex `TODO \d\.\d:`. You can also search all warnings by searching for `Warning:`, which you should do before submitting your code.
+
+## 🌴 ****Project Structure****
+
+```bash
+├── backend
+│   ├── src
+│   │   ├── controllers # Controllers for handling requests
+│   │   │   ├── auth.ts # Controller for login and registration
+│   │   │   ├── post.ts # Controller for post-related requests
+│   │   │   └── user.ts # Controller for user-related requests
+│   │   ├── models # Models for database
+│   │   │   ├── post.ts
+│   │   │   └── user.ts
+│   │   ├── routes # Routes for handling requests
+│   │   │   ├── auth.ts # Routes for login and registration
+│   │   │   ├── init.ts # Route for initializing database
+│   │   │   ├── post.ts
+│   │   │   └── user.ts
+│   │   ├── errors.ts # Error handling
+│   │   ├── index.ts # Entry point
+│   │   └── utils.ts # Utility functions
+│   ├── .env.example
+│   └── package.json
+├── frontend
+│   ├── public
+│   │   └── vscoddit.svg # Vscoddit logo
+│   ├── src
+│   │   ├── components
+│   │   │   ├── ui # UI components. You don't need to modify these.
+│   │   │   │   └── ...
+│   │   │   ├── PostCard.tsx # Post card component for view page
+│   │   │   └── ViewFooter.tsx # Footer component for view page
+│   │   ├── contexts
+│   │   │   ├── PostContext.tsx # Context for view page
+│   │   │   └── UserContext.tsx # Context for user information
+│   │   ├── routes
+│   │   │   ├── auth
+│   │   │   │   ├── Layout.tsx # Layout for login and register pages
+│   │   │   │   ├── Login.tsx # Login page: `/login`
+│   │   │   │   └── Register.tsx # Register page: `/register`
+│   │   │   ├── settings
+│   │   │   │   ├── FAQ.tsx # FAQ page: `/settings/faq`
+│   │   │   │   ├── Layout.tsx # Layout for settings pages
+│   │   │   │   └── Profile.tsx # Profile page: `/settings/profile`
+│   │   │   ├── Create.tsx # Create page: `/create`
+│   │   │   ├── Layout.tsx # Layout for create and view pages
+│   │   │   └── View.tsx # View page: `/view`
+│   │   ├── services
+│   │   │   ├── postService.ts # Service for post-related requests
+│   │   │   └── userService.ts # Service for user-related requests
+│   │   ├── App.tsx # Main app component
+│   │   ├── globals.css # Global CSS
+│   │   ├── main.tsx # Entry point
+│   │   └── RootLayout.tsx # Root layout
+│   ├── .env.example
+│   ├── index.html # Base HTML file
+│   └── package.json
+├── shared
+│   └── types.ts # Shared types
+├── tests # Tests using Playwright
+│   ├── public-1.spec.ts # Test for public-1
+│   ├── public-2.spec.ts # Test for public-2
+│   ├── public-3.spec.ts # Test for public-3
+│   └── public-4.spec.ts # Test for public-4
+├── package.json
+└── README.md
+```
+
+
 
 
 ## Project Structure
@@ -160,29 +360,6 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 - 2.4.4: Pass correct arguments to `ViewFooter` component
 - 2.4.5: Arguments `downvoteClickHandler`, `upvoteClickHandler`, `hasUpvoted`, `hasDownvoted` and `totalVotes` should be Modified
 
-#### 2.5 Handle Voting for Voted Posts (16%)
-
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%204.png)
-
-**Requirements**
-
-1. Upvoting a upvoted post will revert the upvote.
-2. Downvoting a downvoted post will revert the downvote.
-3. Upvoting a downvoted post will first revert the downvote and then perform upvote.
-4. Downvoting a upvoted post will first revert the upvote and then perform downvote.
-
-**Modify**
-
-- PostContext.tsx
-- View.tsx
-
-**Hints**
-
-- 2.5.1: Signal that the context is "locked" through some exported state
-- 2.5.2: Remember to "unlock" the context once the operation is done
-- 2.5.3: Pass correct arguments to `ViewFooter` component
-- 2.5.4: Arguments `loading` should be Modified
-
 ### 3. Create Page (21%)
 
 #### 3.1 Create a New Post With the Editor (5%)
@@ -252,215 +429,8 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
   - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
 
 
-# Hack1 README Draft
 
-# 👀 Overview
-
-- **VSCoddit—VSCode & Reddit Mock App**
-    
-    
-    Introducing VSCoddit, a unique and innovative fusion of two tech-centric worlds: Visual Studio Code and Reddit. VSCoddit brings together coding enthusiasts, developers, and tech aficionados in a vibrant online community where they can freely share and discuss their code snippets.
-    
-    At VSCoddit, users can create, share, and discover code snippets, just like you would post and engage with content on Reddit. Whether it's a brilliant solution to a programming problem, a clever code trick, or simply a fun project, VSCoddit provides a platform to showcase your coding skills and learn from others.
-    
-    One of the standout features of VSCoddit is the upvoting and downvoting system, allowing the community to recognize and promote high-quality code snippets while filtering out the less valuable ones. This system not only encourages contributors to provide meaningful and well-structured code but also helps users quickly identify the best content in the sea of submissions.
-    
-    Happy hacking!
-    
-
-1. Download Hack1 Folder.
-    
-    ```bash
-    cd /path/to/same/level/with/wp1121
-    git clone ...
-    ```
-    
-2. Remove `.git` Folder and Move The Folder to `wp1121`.
-    
-    ```bash
-    rm -rf ./hack1/.git
-    mv ./hack1 ./wp1121
-    ```
-    
-3. Read README!
-4. [Search For TODO’s in Your Editor](https://www.notion.so/Hack1-README-Draft-da809f2ca66c4f36aa5e47081916121c?pvs=21).
-5. Start Coding.
-6. (Optional) Local Testing with Playwright.
-7. (Optional) Failed Tests? Debug.
-8. Done? Zip and Submit to Gradescope
-
-# 🏃 Run the Project
-
-This project utilizes Yarn as its package manager and comprises both frontend and backend sub-projects. It also makes use of the `concurrently` package to execute multiple commands simultaneously. Below are the steps to run the project:
-
-### 0. Verify Your Versions
-
-```bash
-node -v # Ensure it's 18.18.0 (recommended) or compatible (18.x.x)
-yarn -v # Ensure it's 1.22.19 (recommended) or compatible (1.x.x)
-```
-
-### 1. Clone the Project
-
-Open your terminal and clone the project using the following command:
-
-```bash
-cd wp1121 # Enter the wp1121 directory
-git clone https://github.com/ntuee-web-programming/112-1-hack1-test.git hack1 # Clone the project
-rm -rf hack1/.git # Remove the .git directory
-```
-
-### 2. Install Dependencies
-
-To install dependencies for both the frontend and backend sub-projects, use:
-
-```bash
-yarn
-```
-
-This will concurrently execute the `install:frontend` and `install:backend` scripts.
-If preferred, you can also install the dependencies for each sub-project separately.
-
-### 3. Launch the Project
-
-The default port for the frontend is `5173`, while the default port for the backend is `6969`. If you wish to change these ports, you can see `.env.example` for more details. Note that the `PORT` of backend must match the port in `VITE_API_URL` of frontend. You must set the `MONGO_URL` of backend before running the project.
-
-To run the frontend and backend concurrently from the project's root directory, enter:
-
-```bash
-yarn dev
-```
-
-This will concurrently execute the `dev:frontend` and `dev:backend` scripts.
-
-If preferred, you can also launch the frontend and backend individually.
-
-By adhering to these steps, you should successfully run the project on your local machine.
-
-### 4. Test the Project
-
-We utilize Playwright for testing our project. To run the tests, execute:
-
-```bash
-yarn playwright install chromium # Install Chromium (if not already installed)
-yarn playwright install-deps chromium # Install Chromium dependencies (if not already installed)
-yarn test
-```
-
-You should run the test in a separate terminal from the terminal you run your service. Ensure you have launched the project (refer to step 3) before initiating the tests!
-
-Other useful commands for testing include:
-
-```bash
-yarn test public-1 # Test tests/public-1.spec.ts only
-yarn test --reporter=list # Only show the list of tests
-yarn test --headed # Run the tests in a visible browser
-yarn test --debug # Shortcut for "--timeout=0 --max-failures=1 --headed --workers=1"
-```
-
-### 5. Submit the Project
-
-To ensure you receive full credit for your work, it's essential to submit your project to both Gradescope and GitHub.
-
-<aside>
-🚨 **!!!IMPORTANT!!!**
-Not pushing your code to GitHub or failing to sign in will result in a 5% deduction from the total score.
-
-</aside>
-
-To submit the project, here is the recommended workflow:
-
-```bash
-git add .
-git commit -m "Your commit message"
-git archive -o hack1.zip HEAD # Create a zip file of your project
-git push # Push your code to GitHub
-```
-
-Then, upload `hack1.zip` to Gradescope.
-
-# 🈴 Grading Rules/ Reminders
-
-- **DO NOT** modify the `className` of any element in the HTML files. This is strictly for styling purposes. No points will be deducted for modifying the `className` attribute, but it's not recommended.
-- **DO NOT** modify the `data-testid` attribute of any element in the HTML files. This is solely for testing purposes. If you modify this attribute, your tests may fail.
-- You should **NOT** modify files that aren't mentioned in the TODO list. Any modifications to these files will be ignored during grading.
-- Even though Gradescope may have graded your code during the test, **you must still push your code** to the main branch of your GitHub repo `wp1211/hack1` before Hack#1 concludes. If necessary, we will review your code. Failing to push the code before the deadline will result in a 5% deduction from the total score.
-- If you're wondering where the TODOs are located, utilize the search function in your editor. The TODOs are labeled as `TODO #.#`. For instance, `TODO 1.1` pertains to the first subtask of task 1. If you're using VSCode, the shortcut `Ctrl+Shift+F` (Windows) or `Cmd+Shift+F` (Mac) will help you search for these TODOs. To see all TODOs, use regex `TODO \d\.\d:`. You can also search all warnings by searching for `Warning:`, which you should do before submitting your code.
-
-# 🌴 ****Project Structure****
-
-```bash
-├── backend
-│   ├── src
-│   │   ├── controllers # Controllers for handling requests
-│   │   │   ├── auth.ts # Controller for login and registration
-│   │   │   ├── post.ts # Controller for post-related requests
-│   │   │   └── user.ts # Controller for user-related requests
-│   │   ├── models # Models for database
-│   │   │   ├── post.ts
-│   │   │   └── user.ts
-│   │   ├── routes # Routes for handling requests
-│   │   │   ├── auth.ts # Routes for login and registration
-│   │   │   ├── init.ts # Route for initializing database
-│   │   │   ├── post.ts
-│   │   │   └── user.ts
-│   │   ├── errors.ts # Error handling
-│   │   ├── index.ts # Entry point
-│   │   └── utils.ts # Utility functions
-│   ├── .env.example
-│   └── package.json
-├── frontend
-│   ├── public
-│   │   └── vscoddit.svg # Vscoddit logo
-│   ├── src
-│   │   ├── components
-│   │   │   ├── ui # UI components. You don't need to modify these.
-│   │   │   │   └── ...
-│   │   │   ├── PostCard.tsx # Post card component for view page
-│   │   │   └── ViewFooter.tsx # Footer component for view page
-│   │   ├── contexts
-│   │   │   ├── PostContext.tsx # Context for view page
-│   │   │   └── UserContext.tsx # Context for user information
-│   │   ├── routes
-│   │   │   ├── auth
-│   │   │   │   ├── Layout.tsx # Layout for login and register pages
-│   │   │   │   ├── Login.tsx # Login page: `/login`
-│   │   │   │   └── Register.tsx # Register page: `/register`
-│   │   │   ├── settings
-│   │   │   │   ├── FAQ.tsx # FAQ page: `/settings/faq`
-│   │   │   │   ├── Layout.tsx # Layout for settings pages
-│   │   │   │   └── Profile.tsx # Profile page: `/settings/profile`
-│   │   │   ├── Create.tsx # Create page: `/create`
-│   │   │   ├── Layout.tsx # Layout for create and view pages
-│   │   │   └── View.tsx # View page: `/view`
-│   │   ├── services
-│   │   │   ├── postService.ts # Service for post-related requests
-│   │   │   └── userService.ts # Service for user-related requests
-│   │   ├── App.tsx # Main app component
-│   │   ├── globals.css # Global CSS
-│   │   ├── main.tsx # Entry point
-│   │   └── RootLayout.tsx # Root layout
-│   ├── .env.example
-│   ├── index.html # Base HTML file
-│   └── package.json
-├── shared
-│   └── types.ts # Shared types
-├── tests # Tests using Playwright
-│   ├── public-1.spec.ts # Test for public-1
-│   ├── public-2.spec.ts # Test for public-2
-│   ├── public-3.spec.ts # Test for public-3
-│   └── public-4.spec.ts # Test for public-4
-├── package.json
-└── README.md
-```
-
-# ✏️ TODO’s
-
-![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled.png)
-
-We've laid out four main tasks for you, each containing a series of subtasks. The main tasks are independent of each other. Therefore, if you find yourself stuck on a particular task, feel free to jump to the next. However, some subtasks may rely on the completion of previous ones. For instance, finishing subtask 1.4 is a prerequisite for 1.5. We've indicated which files you'll need to modify for each subtask, arranged in the recommended order of completion. To locate relevant tasks in your editor, simply search for `TODO #.#`.
-
-# 📚 Resources
+## 📚 Resources
 
 - [Playwright](https://playwright.dev/docs/intro)
     
