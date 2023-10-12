@@ -35,8 +35,7 @@ const View = (): React.ReactNode => {
   };
   /* End of (2/3) TODO 2.4 */
 
-  /* TODO 2.3: Navigation with Keyboard (3%) */
-  /* TODO 2.3: Navigation with Keyboard (3%) */
+  /* TODO 2.3: Navigation with Keyboard (5%) */
   useEffect(() => {
     /* Hint 1: Finish `handleKeyPress` function */
     const handleKeyPress = (e: { code: string }) => {
@@ -64,11 +63,10 @@ const View = (): React.ReactNode => {
       <div className="mt-auto">
         {/* (2/3) TODO 2.2: Navigation with `ViewFooter` Buttons (8%) */}
         {/* (3/3) TODO 2.4: Navigation with `ViewFooter` Buttons (8%) */}
-        {/* Hint 2.2.2, 2.4.4, 2.5.2: Pass correct arguments to `ViewFooter` component */}
+        {/* Hint 2.2.2, 2.4.4: Pass correct arguments to `ViewFooter` component */}
         {/* Hint 2.2.3: Arguments `nextClickHandler` and `prevClickHandler` should be modified */}
         {/* Hint 2.4.5: Arguments `downvoteClickHandler`, `upvoteClickHandler`, `hasUpvoted`, `hasDownvoted` and `totalVotes` should be Modified */}
         {/* Hint 2.4.5: Arguments `downvoteClickHandler`, `upvoteClickHandler`, `hasUpvoted`, `hasDownvoted` and `totalVotes` should be Modified */}
-        {/* Hint 2.5.1: Arguments `loading` should be Modified */}
         <ViewFooter
           downvoteClickHandler={() => {}}
           upvoteClickHandler={() => {}}
