@@ -19,7 +19,7 @@
     - [Backend](#backend)
   - [TODO's](#todos)
     - [1. Title and Login Page (34%)](#1-title-and-login-page-34)
-    - [2. View Page (40%)](#2-view-page-40)
+    - [2. View Page (24%)](#2-view-page-24)
       - [2.1 Render Posts (3%)](#21-render-posts-3)
       - [2.2 Navigation with Footer Buttons (8%)](#22-navigation-with-footer-buttons-8)
       - [2.3 Navigation with Keyboard Inputs (5%)](#23-navigation-with-keyboard-inputs-5)
@@ -298,7 +298,7 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
   - [`user.ts`](backend/src/controllers/user.ts)
 
 
-### 2. View Page (40%)
+### 2. View Page (24%)
 
 #### 2.1 Render Posts (3%)
 
