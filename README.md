@@ -65,7 +65,7 @@
 5. Start Coding.
 6. (Optional) Local Testing with Playwright.
 7. (Optional) Failed Tests? Debug.
-8. Done? Zip and Submit to Gradescope
+8. Done? Zip and Submit to [Gradescope](https://www.gradescope.com/courses/605052/assignments/3512234)
 
 ## 🏃 Run the Project
 
@@ -156,6 +156,8 @@ git push # Push your code to GitHub
 ```
 
 Then, upload `hack1.zip` to Gradescope.
+
+Gradescope Link: https://www.gradescope.com/courses/605052/assignments/3512234
 
 ## 🈴 Grading Rules/ Reminders
 
