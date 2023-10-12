@@ -2,112 +2,38 @@
 
 ### Table of Contents
 
-- [Run the project](#run-the-project)
-  - [0. Verify Your Versions](#0-verify-your-versions)
-  - [1. Clone the Project](#1-clone-the-project)
-  - [2. Install Dependencies](#2-install-dependencies)
-  - [3. Launch the Project](#3-launch-the-project)
-  - [4. Test the Project](#4-test-the-project)
-  - [5. Submit the Project](#5-submit-the-project)
-- [Project Structure](#project-structure)
-  - [Frontend](#frontend)
-  - [Backend](#backend)
-  - [Folder Structure](#folder-structure)
-- [Grading Rules / Reminders](#grading-rules--reminders)
-- [TODOs](#todos)
-  - [1. Title and Login Page (34%)](#1-title-and-login-page-34)
-  - [2. View Page](#2-view-page)
-  - [3. Create Page](#3-create-page)
-  - [4. Settings - Profile Page (29%)](#4-settings---profile-page-29)
+- [112-1-hack1](#112-1-hack1)
+    - [Table of Contents](#table-of-contents)
+  - [Project Structure](#project-structure)
+    - [Frontend](#frontend)
+    - [Backend](#backend)
+  - [TODO's](#todos)
+    - [1. Title and Login Page (34%)](#1-title-and-login-page-34)
+    - [2. View Page (40%)](#2-view-page-40)
+      - [2.1 Render Posts (3%)](#21-render-posts-3)
+      - [2.2 Navigation with Footer Buttons (8%)](#22-navigation-with-footer-buttons-8)
+      - [2.3 Navigation with Keyboard Inputs (5%)](#23-navigation-with-keyboard-inputs-5)
+      - [2.4 Handle Votes for Unvoted Posts (8%)](#24-handle-votes-for-unvoted-posts-8)
+      - [2.5 Handle Voting for Voted Posts (16%)](#25-handle-voting-for-voted-posts-16)
+    - [3. Create Page (21%)](#3-create-page-21)
+      - [3.1 Create a New Post With the Editor (5%)](#31-create-a-new-post-with-the-editor-5)
+      - [3.2 View User Posts With Files Tab (8%)](#32-view-user-posts-with-files-tab-8)
+    - [3.3 Edit User Posts With Editor (8%)](#33-edit-user-posts-with-editor-8)
+    - [4. Settings - Profile Page (29%)](#4-settings---profile-page-29)
+- [Hack1 README Draft](#hack1-readme-draft)
+- [👀 Overview](#overview)
+- [🏃 Run the Project](#run-the-project)
+    - [0. Verify Your Versions](#0-verify-your-versions)
+    - [1. Clone the Project](#1-clone-the-project)
+    - [2. Install Dependencies](#2-install-dependencies)
+    - [3. Launch the Project](#3-launch-the-project)
+    - [4. Test the Project](#4-test-the-project)
+    - [5. Submit the Project](#5-submit-the-project)
+- [🈴 Grading Rules/ Reminders](#grading-rules-reminders)
+- [🌴 ****Project Structure****](#project-structure-1)
+- [✏️ TODO’s](#️todos)
+- [📚 Resources](#resources)
 
-## Run the project
-
-This project utilizes Yarn as its package manager and comprises both frontend and backend sub-projects. It also makes use of the `concurrently` package to execute multiple commands simultaneously. Below are the steps to run the project:
-
-### 0. Verify Your Versions
-
-```bash
-node -v # Ensure it's 18.18.0 (recommended) or compatible (18.x.x)
-yarn -v # Ensure it's 1.22.19 (recommended) or compatible (1.x.x)
-```
-
-### 1. Clone the Project
-
-Open your terminal and clone the project using the following command:
-
-```bash
-cd wp1121 # Enter the wp1121 directory
-git clone https://github.com/ntuee-web-programming/112-1-hack1-test.git hack1 # Clone the project
-rm -rf hack1/.git # Remove the .git directory
-cd hack1 # Enter the project directory
-```
-
-### 2. Install Dependencies
-
-To install dependencies for both the frontend and backend sub-projects, use:
-
-```bash
-yarn
-```
-
-This will concurrently execute the `install:frontend` and `install:backend` scripts.
-
-If preferred, you can also install the dependencies for each sub-project separately.
-
-### 3. Launch the Project
-
-The default port for the frontend is `5173`, while the default port for the backend is `6969`. If you wish to change these ports, you can see `.env.example` for more details. Note that the `PORT` of backend must match the port in `VITE_API_URL` of frontend. You must set the `MONGO_URL` of backend before running the project.
-
-To run the frontend and backend concurrently from the project's root directory, enter:
-
-```bash
-yarn dev
-```
-
-This will concurrently execute the `dev:frontend` and `dev:backend` scripts.
-
-If preferred, you can also launch the frontend and backend individually.
-
-By adhering to these steps, you should successfully run the project on your local machine.
-
-### 4. Test the Project
-
-We utilize Playwright for testing our project. To run the tests, execute:
-
-```bash
-yarn playwright install chromium # Install Chromium (if not already installed)
-yarn playwright install-deps chromium # Install Chromium dependencies (if not already installed)
-yarn test
-```
-
-You should run the test in a separate terminal from the terminal you run your service. Ensure you have launched the project (refer to [step 3](#3-launch-the-project)) before initiating the tests!
-
-Other useful commands for testing include:
-
-```bash
-yarn test public-1 # Test tests/public-1.spec.ts only
-yarn test --reporter=list # Only show the list of tests
-yarn test --headed # Run the tests in a visible browser
-yarn test --debug # Shortcut for "--timeout=0 --max-failures=1 --headed --workers=1"
-```
-
-### 5. Submit the Project
-
-To ensure you receive full credit for your work, it's essential to submit your project to both Gradescope and GitHub.
-
-> [!IMPORTANT]
-> Not pushing your code to GitHub or failing to sign in will result in a 5% deduction from the total score.
-
-To submit the project, here is the recommended workflow:
-
-```bash
-git add .
-git commit -m "Your commit message"
-git archive -o hack1.zip HEAD:hack1 # Create a zip file of your project
-git push # Push your code to GitHub
-```
-
-Then, upload `hack1.zip` to Gradescope.
 
 ## Project Structure
 
@@ -143,7 +69,325 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 
 1. The backend structure closely resembles that of the Trello clone app. If you're familiar with its backend code, this should be straightforward. The `models` folder manages both users and posts, while the `controllers` folder handles requests from the frontend. An additional `auth` controller specifically manages login and registration. The `routes` folder oversees all routing, including a unique `init` route to initialize the database during tests.
 
-### Folder Structure
+## TODO's
+
+### 1. Title and Login Page (34%)
+
+- [ ] 1.1 Title and Login Page Title (5%)
+
+  - [`index.html`](frontend/index.html)
+  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
+
+- [ ] 1.2 Redirect to Login Page (5%)
+
+  - [`UserContext.tsx`](frontend/src/contexts/UserContext.tsx)
+
+- [ ] 1.3 Route Configuration for Login and Register Pages (8%)
+
+  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
+  - [`Login.tsx`](frontend/src/routes/auth/Login.tsx)
+  - [`Register.tsx`](frontend/src/routes/auth/Register.tsx)
+
+- [ ] 1.4 Login Fails for Unregistered Users (8%)
+
+  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
+
+- [ ] 1.5 Ensure User Registration Functions Properly (8%)
+
+  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
+  - [`user.ts`](backend/src/controllers/user.ts)
+
+
+### 2. View Page (40%)
+
+#### 2.1 Render Posts (3%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%201.png)
+
+**Requirements**
+
+1. Render author
+2. Render posted date
+3. Render title
+4. Render content
+
+**Hints**
+
+- 2.1.1: Pass correct arguments to `PostCard` component c.f. `PostContext`
+- 2.1.2: Arguments `post` should be modified
+
+#### 2.2 Navigation with Footer Buttons (8%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%202.png)
+
+**Requirements**
+
+1. Navigate to next post when “Next Button” is clicked.
+2. Navigate to previous post when “Prev Button” is clicked.
+3. Navigate to the **first post** when “Next Button”  is clicked at the **last post**.
+4. Navigate to the **last post** when “Prev Button” is clicked at the **first post**.
+
+**Hints**
+
+- 2.2.1: Link page index to React state
+- 2.2.2: Pass correct arguments to `ViewFooter` component
+- 2.2.3: Arguments `nextClickHandler` and `prevClickHandler` should be modified
+- 2.2.4: Finish next and prev click handler
+- 2.2.5: Refer to `PostContext` for more clue
+
+#### 2.3 Navigation with Keyboard Inputs (5%)
+
+**Requirements**
+
+1. Navigate to next post when “Right Arrow Key” is pressed.
+2. Navigate to previous post when “Left Arrow Key” is pressed.
+3. Navigate to the **first post** when “Right Arrow Key”  is pressed at the **last post**.
+4. Navigate to the **last post** when “Left Arrow Key” is pressed at the **first post**.
+
+#### 2.4 Handle Votes for Unvoted Posts (8%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%203.png)
+
+**Requirements**
+
+1. Vote icon will be filled once clicked.
+
+**Hints**
+
+- 2.4.1: Determine if the current user has upvoted or downvoted the selected post
+- 2.4.2: Refer to the schema of `Post` for more clue
+- 2.4.3: Call some exported function from `PostContext`
+- 2.4.4: Pass correct arguments to `ViewFooter` component
+- 2.4.5: Arguments `downvoteClickHandler`, `upvoteClickHandler`, `hasUpvoted`, `hasDownvoted` and `totalVotes` should be Modified
+
+#### 2.5 Handle Voting for Voted Posts (16%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%204.png)
+
+**Requirements**
+
+1. Upvoting a upvoted post will revert the upvote.
+2. Downvoting a downvoted post will revert the downvote.
+3. Upvoting a downvoted post will first revert the downvote and then perform upvote.
+4. Downvoting a upvoted post will first revert the upvote and then perform downvote.
+
+**Modify**
+
+- PostContext.tsx
+- View.tsx
+
+**Hints**
+
+- 2.5.1: Signal that the context is "locked" through some exported state
+- 2.5.2: Remember to "unlock" the context once the operation is done
+- 2.5.3: Pass correct arguments to `ViewFooter` component
+- 2.5.4: Arguments `loading` should be Modified
+
+### 3. Create Page (21%)
+
+#### 3.1 Create a New Post With the Editor (5%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%205.png)
+
+**Requirements**
+
+1. React state `title` reflects changes in the filename input field.
+2. React state `code` reflects changes in the editor.
+3. Post will be created and stored in database once the “Post Button” is clicked.
+
+**Hints**
+
+- 3.1.1: Argument `onChange` and `value` of `Input` component should be modified
+- 3.1.2: Argument `onChange` of `Editor` component should be modified
+
+#### 3.2 View User Posts With Files Tab (8%)
+
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled%206.png)
+
+**Requirements**
+
+1. Render a list of posts that the logged in user has posted.
+2. Navigate to corresponding post once any file tab is clicked.
+
+**Hints**
+
+- 3.2.1: Use `getPostIndicesByUserId` from `PostContext` to fetch logged in user's post indices
+- 3.2.2: Get post data with `getPostByIndex` from `PostContext`
+- 3.2.3: Display post title here
+
+### 3.3 Edit User Posts With Editor (8%)
+
+**Requirements**
+
+1. Navigate to corresponding post and allow edit once any file tab is clicked.
+2. Changes will be saved once the “Post Button” is clicked.
+
+**Hints**
+
+- 3.3.1: Use the correct API from `PostService` to update DB
+- 3.3.2: Use React hook to update frontend
+
+**Hint:** If tasks 1.4 and 1.5 fail but succeeded previously, consider clearing your database and restarting your backend server.
+
+### 4. Settings - Profile Page (29%)
+
+- [ ] 4.1 Render User Information - bio (4%)
+
+  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
+
+- [ ] 4.2 Render User Information - gender (8%)
+
+  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
+
+- [ ] 4.3 Render User Information - profile picture 1 (6%)
+
+  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
+
+- [ ] 4.4 Update User Information (6%)
+
+  - [`user.ts`](backend/src/controllers/user.ts)
+
+- [ ] 4.5 Render User Information - profile picture 2 (5%)
+
+  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
+
+
+# Hack1 README Draft
+
+# 👀 Overview
+
+- **VSCoddit—VSCode & Reddit Mock App**
+    
+    
+    Introducing VSCoddit, a unique and innovative fusion of two tech-centric worlds: Visual Studio Code and Reddit. VSCoddit brings together coding enthusiasts, developers, and tech aficionados in a vibrant online community where they can freely share and discuss their code snippets.
+    
+    At VSCoddit, users can create, share, and discover code snippets, just like you would post and engage with content on Reddit. Whether it's a brilliant solution to a programming problem, a clever code trick, or simply a fun project, VSCoddit provides a platform to showcase your coding skills and learn from others.
+    
+    One of the standout features of VSCoddit is the upvoting and downvoting system, allowing the community to recognize and promote high-quality code snippets while filtering out the less valuable ones. This system not only encourages contributors to provide meaningful and well-structured code but also helps users quickly identify the best content in the sea of submissions.
+    
+    Happy hacking!
+    
+
+1. Download Hack1 Folder.
+    
+    ```bash
+    cd /path/to/same/level/with/wp1121
+    git clone ...
+    ```
+    
+2. Remove `.git` Folder and Move The Folder to `wp1121`.
+    
+    ```bash
+    rm -rf ./hack1/.git
+    mv ./hack1 ./wp1121
+    ```
+    
+3. Read README!
+4. [Search For TODO’s in Your Editor](https://www.notion.so/Hack1-README-Draft-da809f2ca66c4f36aa5e47081916121c?pvs=21).
+5. Start Coding.
+6. (Optional) Local Testing with Playwright.
+7. (Optional) Failed Tests? Debug.
+8. Done? Zip and Submit to Gradescope
+
+# 🏃 Run the Project
+
+This project utilizes Yarn as its package manager and comprises both frontend and backend sub-projects. It also makes use of the `concurrently` package to execute multiple commands simultaneously. Below are the steps to run the project:
+
+### 0. Verify Your Versions
+
+```bash
+node -v # Ensure it's 18.18.0 (recommended) or compatible (18.x.x)
+yarn -v # Ensure it's 1.22.19 (recommended) or compatible (1.x.x)
+```
+
+### 1. Clone the Project
+
+Open your terminal and clone the project using the following command:
+
+```bash
+cd wp1121 # Enter the wp1121 directory
+git clone https://github.com/ntuee-web-programming/112-1-hack1-test.git hack1 # Clone the project
+rm -rf hack1/.git # Remove the .git directory
+```
+
+### 2. Install Dependencies
+
+To install dependencies for both the frontend and backend sub-projects, use:
+
+```bash
+yarn
+```
+
+This will concurrently execute the `install:frontend` and `install:backend` scripts.
+If preferred, you can also install the dependencies for each sub-project separately.
+
+### 3. Launch the Project
+
+The default port for the frontend is `5173`, while the default port for the backend is `6969`. If you wish to change these ports, you can see `.env.example` for more details. Note that the `PORT` of backend must match the port in `VITE_API_URL` of frontend. You must set the `MONGO_URL` of backend before running the project.
+
+To run the frontend and backend concurrently from the project's root directory, enter:
+
+```bash
+yarn dev
+```
+
+This will concurrently execute the `dev:frontend` and `dev:backend` scripts.
+
+If preferred, you can also launch the frontend and backend individually.
+
+By adhering to these steps, you should successfully run the project on your local machine.
+
+### 4. Test the Project
+
+We utilize Playwright for testing our project. To run the tests, execute:
+
+```bash
+yarn playwright install chromium # Install Chromium (if not already installed)
+yarn playwright install-deps chromium # Install Chromium dependencies (if not already installed)
+yarn test
+```
+
+You should run the test in a separate terminal from the terminal you run your service. Ensure you have launched the project (refer to step 3) before initiating the tests!
+
+Other useful commands for testing include:
+
+```bash
+yarn test public-1 # Test tests/public-1.spec.ts only
+yarn test --reporter=list # Only show the list of tests
+yarn test --headed # Run the tests in a visible browser
+yarn test --debug # Shortcut for "--timeout=0 --max-failures=1 --headed --workers=1"
+```
+
+### 5. Submit the Project
+
+To ensure you receive full credit for your work, it's essential to submit your project to both Gradescope and GitHub.
+
+<aside>
+🚨 **!!!IMPORTANT!!!**
+Not pushing your code to GitHub or failing to sign in will result in a 5% deduction from the total score.
+
+</aside>
+
+To submit the project, here is the recommended workflow:
+
+```bash
+git add .
+git commit -m "Your commit message"
+git archive -o hack1.zip HEAD # Create a zip file of your project
+git push # Push your code to GitHub
+```
+
+Then, upload `hack1.zip` to Gradescope.
+
+# 🈴 Grading Rules/ Reminders
+
+- **DO NOT** modify the `className` of any element in the HTML files. This is strictly for styling purposes. No points will be deducted for modifying the `className` attribute, but it's not recommended.
+- **DO NOT** modify the `data-testid` attribute of any element in the HTML files. This is solely for testing purposes. If you modify this attribute, your tests may fail.
+- You should **NOT** modify files that aren't mentioned in the TODO list. Any modifications to these files will be ignored during grading.
+- Even though Gradescope may have graded your code during the test, **you must still push your code** to the main branch of your GitHub repo `wp1211/hack1` before Hack#1 concludes. If necessary, we will review your code. Failing to push the code before the deadline will result in a 5% deduction from the total score.
+- If you're wondering where the TODOs are located, utilize the search function in your editor. The TODOs are labeled as `TODO #.#`. For instance, `TODO 1.1` pertains to the first subtask of task 1. If you're using VSCode, the shortcut `Ctrl+Shift+F` (Windows) or `Cmd+Shift+F` (Mac) will help you search for these TODOs. To see all TODOs, use regex `TODO \d\.\d:`. You can also search all warnings by searching for `Warning:`, which you should do before submitting your code.
+
+# 🌴 ****Project Structure****
 
 ```bash
 ├── backend
@@ -210,104 +454,85 @@ If you're not interested in the project's layout, skip to the [TODOs](#todos) se
 └── README.md
 ```
 
-## Grading Rules / Reminders
+# ✏️ TODO’s
 
-- **DO NOT** modify the `className` of any element in the HTML files. This is strictly for styling purposes. No points will be deducted for modifying the `className` attribute, but it's not recommended.
-- **DO NOT** modify the `data-testid` attribute of any element in the HTML files. This is solely for testing purposes. If you modify this attribute, your tests may fail.
-- You should **NOT** modify files that aren't mentioned in the TODO list. Any modifications to these files will be ignored during grading.
-- Even though Gradescope may have graded your code during the test, **you must still push your code** to the main branch of your GitHub repo `wp1211/hack1` before Hack#1 concludes. If necessary, we will review your code. Failing to push the code before the deadline will result in a 5% deduction from the total score.
-- If you're wondering where the TODOs are located, utilize the search function in your editor. The TODOs are labeled as `TODO #.#`. For instance, `TODO 1.1` pertains to the first subtask of task 1. If you're using VSCode, the shortcut `Ctrl+Shift+F` (Windows) or `Cmd+Shift+F` (Mac) will help you search for these TODOs. To see all TODOs, use regex `TODO \d\.\d:`. You can also search all warnings by searching for `Warning:`, which you should do before submitting your code.
-
-  ![Visual Studio Code Search](https://github.com/ntuee-web-programming/112-1-unit1-todo-react/assets/74884625/a624e058-8b8a-487d-9f7c-e667b6725abb)
-
-## TODOs
+![Untitled](Hack1%20README%20Draft%20da809f2ca66c4f36aa5e47081916121c/Untitled.png)
 
 We've laid out four main tasks for you, each containing a series of subtasks. The main tasks are independent of each other. Therefore, if you find yourself stuck on a particular task, feel free to jump to the next. However, some subtasks may rely on the completion of previous ones. For instance, finishing subtask 1.4 is a prerequisite for 1.5. We've indicated which files you'll need to modify for each subtask, arranged in the recommended order of completion. To locate relevant tasks in your editor, simply search for `TODO #.#`.
 
-### 1. Title and Login Page (34%)
+# 📚 Resources
 
-- [ ] 1.1 Title and Login Page Title (5%)
-
-  - [`index.html`](frontend/index.html)
-  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
-
-- [ ] 1.2 Redirect to Login Page (5%)
-
-  - [`UserContext.tsx`](frontend/src/contexts/UserContext.tsx)
-
-- [ ] 1.3 Route Configuration for Login and Register Pages (8%)
-
-  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
-  - [`Login.tsx`](frontend/src/routes/auth/Login.tsx)
-  - [`Register.tsx`](frontend/src/routes/auth/Register.tsx)
-
-- [ ] 1.4 Login Fails for Unregistered Users (8%)
-
-  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
-
-- [ ] 1.5 Ensure User Registration Functions Properly (8%)
-
-  - [`Layout.tsx`](frontend/src/routes/auth/Layout.tsx)
-  - [`user.ts`](backend/src/controllers/user.ts)
-
-**Hint:** If tasks 1.4 and 1.5 fail but succeeded previously, consider clearing your database and restarting your backend server.
-
-### 2. View Page (40%)
-
-- [ ] 2.1 Render Post With PostCard and PostContext (3%)
-
-  - [`View.tsx`](frontend/src/routes/View.tsx)
-
-- [ ] 2.2 Navigation with `ViewFooter` Buttons (8%)
-
-  - [`View.tsx`](frontend/src/routes/View.tsx)
-
-- [ ] 2.3 Navigation with Keyboard (5%)
-
-  - [`View.tsx`](frontend/src/routes/View.tsx)
-
-- [ ] 2.4 Handle Voting for Unvoted Posts (8%)
-
-  - [`View.tsx`](frontend/src/routes/View.tsx)
-
-- [ ] 2.5 Handle Voting for Voted Posts (16%)
-
-  - [`View.tsx`](frontend/src/routes/View.tsx)
-  - [`PostContext.tsx`](frontend/src/contexts/PostContext.tsx)
-
-### 3. Create Page (21%)
-
-- [ ] 3.1 Create a New Post With the Editor (5%)
-
-  - [`Create.tsx`](frontend/src/routes/Create.tsx)
-
-- [ ] 3.2 View User Posts With Files Tab (8%)
-
-  - [`Create.tsx`](frontend/src/routes/Create.tsx)
-
-- [ ] 3.3 Edit User Posts With Editor (8%)
-
-  - [`Create.tsx`](frontend/src/routes/Create.tsx)
-  - [`PostContext.tsx`](frontend/src/contexts/PostContext.tsx)
-
-### 4. Settings - Profile Page (29%)
-
-- [ ] 4.1 Render User Information - bio (4%)
-
-  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
-
-- [ ] 4.2 Render User Information - gender (8%)
-
-  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
-
-- [ ] 4.3 Render User Information - profile picture 1 (6%)
-
-  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
-
-- [ ] 4.4 Update User Information (6%)
-
-  - [`user.ts`](backend/src/controllers/user.ts)
-
-- [ ] 4.5 Render User Information - profile picture 2 (5%)
-
-  - [`Profile.tsx`](frontend/src/routes/settings/Profile.tsx)
+- [Playwright](https://playwright.dev/docs/intro)
+    
+    <aside>
+    💡 **ChatGPT Lesson**
+    
+    Playwright is an open-source automation framework for web browsers like Chrome, Firefox, and WebKit. It allows developers to automate interactions with web pages, such as filling out forms, clicking buttons, and navigating between pages. Playwright provides a simple and powerful API for browser automation and is often used for web testing, web scraping, and other web automation tasks. It supports multiple programming languages and offers cross-browser compatibility.
+    
+    Here's a basic example of using Playwright in JavaScript to open a webpage, fill out a form, and capture a screenshot:
+    
+    ```jsx
+    const { chromium } = require('playwright');
+    
+    (async () => {
+      const browser = await chromium.launch();
+      const page = await browser.newPage();
+    
+      await page.goto('<https://example.com>');
+    
+      // Fill out a form
+      await page.fill('input[name="username"]', 'yourusername');
+      await page.fill('input[name="password"]', 'yourpassword');
+      await page.click('input[type="submit"]');
+    
+      // Capture a screenshot
+      await page.screenshot({ path: 'example.png' });
+    
+      await browser.close();
+    })();
+    ```
+    
+    In this example, Playwright is used to open a Chromium browser, navigate to "[https://example.com](https://example.com/)", fill out a username and password field, submit the form, and then capture a screenshot of the resulting page.
+    
+    </aside>
+    
+- [Template Literals](https://www.w3schools.com/js/js_string_templates.asp)
+    
+    <aside>
+    💡 **ChatGPT Lesson**
+    
+    Template literals in JavaScript are a way to create strings that can include variables and expressions within them, using backticks (``) as delimiters. They allow for more readable and convenient string formatting. Here's a brief example:
+    
+    ```jsx
+    const name = "John";
+    const age = 30;
+    
+    const message = `My name is ${name} and I am ${age} years old.`;
+    
+    console.log(message);
+    
+    ```
+    
+    In this example, the `${}` syntax within the backticks allows you to insert the values of `name` and `age` variables into the string, creating a dynamic message.
+    
+    </aside>
+    
+- [React Router Dom](https://reactrouter.com/en/main/start/overview)
+    
+    <aside>
+    💡 **ChatGPT Lesson**
+    
+    React Router DOM is a JavaScript library for handling routing in React applications. It allows you to create and manage navigation within your single-page React web application (SPA). You can define different routes and render components based on the URL, enabling a seamless user experience. React Router DOM provides components like `BrowserRouter`, `Route`, and `Link` for routing functionality.
+    
+    </aside>
+    
+- `[useForm` Hook](https://react-hook-form.com/docs/useform)
+    
+    <aside>
+    💡 **ChatGPT Lesson**
+    
+    The `useForm` hook is not a standard React hook, but it might refer to a custom hook or library like "react-hook-form" or "Formik" used for managing forms in React. These libraries simplify form handling by providing hooks and utilities to manage form state, validation, and submission. They make it easier to interact with form elements, capture user input, and manage the form's state in a more organized and efficient manner.
+    
+    </aside>
+    
+- [Manaco Editor](https://microsoft.github.io/monaco-editor/docs.html)
